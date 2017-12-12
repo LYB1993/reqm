@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.reqm.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.system.reqm.entity.User">
+    <id column="N_UserID" jdbcType="INTEGER" property="nUserid" />
+    <result column="C_LoginName" jdbcType="VARCHAR" property="cLoginname" />
+    <result column="C_PassWord" jdbcType="VARCHAR" property="cPassword" />
+    <result column="C_UserName" jdbcType="VARCHAR" property="cUsername" />
+    <result column="DT_LastLoginTime" jdbcType="TIMESTAMP" property="dtLastlogintime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    N_UserID, C_LoginName, C_PassWord, C_UserName, DT_LastLoginTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_user
+    where N_UserID = #{nUserid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByLoginName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_user
+    where C_LoginName = #{cLoginname,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user
+    where N_UserID = #{nUserid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.system.reqm.entity.User">
+    insert into t_user (C_LoginName, C_PassWord,
+    C_UserName, DT_LastLoginTime)
+    values (#{cLoginname,jdbcType=VARCHAR}, #{cPassword,jdbcType=VARCHAR},
+    #{cUsername,jdbcType=VARCHAR}, #{dtLastlogintime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.system.reqm.entity.User">
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nUserid != null">
+        N_UserID,
+      </if>
+      <if test="cLoginname != null">
+        C_LoginName,
+      </if>
+      <if test="cPassword != null">
+        C_PassWord,
+      </if>
+      <if test="cUsername != null">
+        C_UserName,
+      </if>
+      <if test="dtLastlogintime != null">
+        DT_LastLoginTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nUserid != null">
+        #{nUserid,jdbcType=INTEGER},
+      </if>
+      <if test="cLoginname != null">
+        #{cLoginname,jdbcType=VARCHAR},
+      </if>
+      <if test="cPassword != null">
+        #{cPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="cUsername != null">
+        #{cUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="dtLastlogintime != null">
+        #{dtLastlogintime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.system.reqm.entity.User">
+    update t_user
+    <set>
+      <if test="cLoginname != null">
+        C_LoginName = #{cLoginname,jdbcType=VARCHAR},
+      </if>
+      <if test="cPassword != null">
+        C_PassWord = #{cPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="cUsername != null">
+        C_UserName = #{cUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="dtLastlogintime != null">
+        DT_LastLoginTime = #{dtLastlogintime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where N_UserID = #{nUserid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.system.reqm.entity.User">
+    update t_user
+    set C_LoginName = #{cLoginname,jdbcType=VARCHAR},
+    C_PassWord = #{cPassword,jdbcType=VARCHAR},
+    C_UserName = #{cUsername,jdbcType=VARCHAR},
+    DT_LastLoginTime = #{dtLastlogintime,jdbcType=TIMESTAMP}
+    where N_UserID = #{nUserid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/reqm?characterEncoding=utf8&useSSL=true
+    driver-class-name: com.mysql.jdbc.Driver
+    username: test
+    password: 123
+  thymeleaf:
+    mode: HTML5
+    refix: classpath:/templates/
+    suffix: .html
+    cache: false
+    content-type: text/html
+    encoding: UTF-8
+mybatis:
+  type-aliases-package: com.system.reqm.entity
+  mapper-locations:
+    - mappers/UserMapper.xml
+    - mappers/ItemsMapper.xml
+debug: false
+logging:
+  level:
+    com.system.reqm.mapper: DEBUG
+  path: E:/log/reqm

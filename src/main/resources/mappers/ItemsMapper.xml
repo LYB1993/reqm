@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.reqm.mapper.ItemsMapper">
+    <resultMap id="BaseResultMap" type="com.system.reqm.entity.Items">
+        <id column="N_ITEMS_ID" jdbcType="INTEGER" property="nItemsId" />
+        <result column="C_ITEMS_NAME" jdbcType="VARCHAR" property="cItemsName" />
+        <result column="D_ITEMS_CREATETIME" jdbcType="TIMESTAMP" property="dItemsCreatetime" />
+        <result column="C_ITEMS_ENDTIME" jdbcType="TIMESTAMP" property="cItemsEndtime" />
+        <result column="N_TIEMS_AT" jdbcType="INTEGER" property="nTiemsAt" />
+        <result column="N_TIMES_ET" jdbcType="INTEGER" property="nTimesEt" />
+        <result column="C_TIMES_PRINCIPAL" jdbcType="VARCHAR" property="cTimesPrincipal" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        N_ITEMS_ID, C_ITEMS_NAME, D_ITEMS_CREATETIME, C_ITEMS_ENDTIME, N_TIEMS_AT, N_TIMES_ET,
+        C_TIMES_PRINCIPAL
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_items
+        where N_ITEMS_ID = #{nItemsId,jdbcType=INTEGER}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from t_items
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from t_items
+        where N_ITEMS_ID = #{nItemsId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.system.reqm.entity.Items">
+        insert into t_items (N_ITEMS_ID, C_ITEMS_NAME, D_ITEMS_CREATETIME,
+        C_ITEMS_ENDTIME, N_TIEMS_AT, N_TIMES_ET,
+        C_TIMES_PRINCIPAL)
+        values (#{nItemsId,jdbcType=INTEGER}, #{cItemsName,jdbcType=VARCHAR}, #{dItemsCreatetime,jdbcType=TIMESTAMP},
+        #{cItemsEndtime,jdbcType=TIMESTAMP}, #{nTiemsAt,jdbcType=INTEGER}, #{nTimesEt,jdbcType=INTEGER},
+        #{cTimesPrincipal,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.system.reqm.entity.Items">
+        insert into t_items
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="nItemsId != null">
+                N_ITEMS_ID,
+            </if>
+            <if test="cItemsName != null">
+                C_ITEMS_NAME,
+            </if>
+            <if test="dItemsCreatetime != null">
+                D_ITEMS_CREATETIME,
+            </if>
+            <if test="cItemsEndtime != null">
+                C_ITEMS_ENDTIME,
+            </if>
+            <if test="nTiemsAt != null">
+                N_TIEMS_AT,
+            </if>
+            <if test="nTimesEt != null">
+                N_TIMES_ET,
+            </if>
+            <if test="cTimesPrincipal != null">
+                C_TIMES_PRINCIPAL,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="nItemsId != null">
+                #{nItemsId,jdbcType=INTEGER},
+            </if>
+            <if test="cItemsName != null">
+                #{cItemsName,jdbcType=VARCHAR},
+            </if>
+            <if test="dItemsCreatetime != null">
+                #{dItemsCreatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cItemsEndtime != null">
+                #{cItemsEndtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="nTiemsAt != null">
+                #{nTiemsAt,jdbcType=INTEGER},
+            </if>
+            <if test="nTimesEt != null">
+                #{nTimesEt,jdbcType=INTEGER},
+            </if>
+            <if test="cTimesPrincipal != null">
+                #{cTimesPrincipal,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.system.reqm.entity.Items">
+        update t_items
+        <set>
+            <if test="cItemsName != null">
+                C_ITEMS_NAME = #{cItemsName,jdbcType=VARCHAR},
+            </if>
+            <if test="dItemsCreatetime != null">
+                D_ITEMS_CREATETIME = #{dItemsCreatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="cItemsEndtime != null">
+                C_ITEMS_ENDTIME = #{cItemsEndtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="nTiemsAt != null">
+                N_TIEMS_AT = #{nTiemsAt,jdbcType=INTEGER},
+            </if>
+            <if test="nTimesEt != null">
+                N_TIMES_ET = #{nTimesEt,jdbcType=INTEGER},
+            </if>
+            <if test="cTimesPrincipal != null">
+                C_TIMES_PRINCIPAL = #{cTimesPrincipal,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where N_ITEMS_ID = #{nItemsId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.system.reqm.entity.Items">
+        update t_items
+        set C_ITEMS_NAME = #{cItemsName,jdbcType=VARCHAR},
+        D_ITEMS_CREATETIME = #{dItemsCreatetime,jdbcType=TIMESTAMP},
+        C_ITEMS_ENDTIME = #{cItemsEndtime,jdbcType=TIMESTAMP},
+        N_TIEMS_AT = #{nTiemsAt,jdbcType=INTEGER},
+        N_TIMES_ET = #{nTimesEt,jdbcType=INTEGER},
+        C_TIMES_PRINCIPAL = #{cTimesPrincipal,jdbcType=VARCHAR}
+        where N_ITEMS_ID = #{nItemsId,jdbcType=INTEGER}
+    </update>
+</mapper>

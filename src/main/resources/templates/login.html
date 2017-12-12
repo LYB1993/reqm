@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="CN" xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>项目管理</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <h1>项目管理</h1>
+        <form class="form-horizontal" role="form" action="toIndex" method="post">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">用户名</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" name="userLoginName" placeholder="LoginName"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" name="userPassWord" placeholder="PassWord"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"/> 记住密码
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">登录</button>
+                </div>
+            </div>
+        </form>
+        <p class="text-warning" th:text="${message}"></p>
+    </div>
+</body>
+<script th:src="@{/jquery-3.2.1.js}"></script>
+</html>
