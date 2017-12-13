@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	var src_fenshu = $("input:hidden[name='src_fenshu']").val();
-	var arrayObj = new Array();
-	arrayObj = src_fenshu.split(",");
+	//var src_fenshu = $("input:hidden[name='src_fenshu']").val();
+	//var arrayObj = new Array();
+	//arrayObj = src_fenshu.split(",");
     var doughnutData = [
         {
             value: 30,
@@ -33,14 +33,14 @@ $(document).ready(function() {
                 strokeColor : "rgba(220,220,220,1)",
                 pointColor : "rgba(220,220,220,1)",
                 pointStrokeColor : "#fff",
-                data : [100,100,100,100,100,100,100]
+                data : [100,67,10,86,36,89,100]
             },
             {
                 fillColor : "rgba(151,187,205,0.5)",
                 strokeColor : "rgba(151,187,205,1)",
                 pointColor : "rgba(151,187,205,1)",
                 pointStrokeColor : "#fff",
-                data :arrayObj
+                data :[34,56,67,89,45,12,23]
             }
         ]
 
@@ -124,6 +124,7 @@ $(document).ready(function() {
     };
   
     new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
+    console.log(document.getElementById("line"));
     //new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData);
    //new Chart(document.getElementById("polarArea").getContext("2d")).PolarArea(chartData);
     new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
