@@ -5,30 +5,83 @@
     <meta charset="UTF-8"/>
     <title>首页面</title>
     <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="https://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <link th:href="@{/bootstrap/css/font-awesome.min.css}" rel="stylesheet"/>
 </head>
 <body>
     <!--/*@thymesVar id="user" type="com.system.reqm.entity.User"*/-->
-     <p th:text="|用户名：${user.cLoginname}|">Test</p>
-    <table class="table table-bordered">
-        <thead>
-            <th>项目编号</th>
-            <th>项目名称</th>
-            <th>开始时间</th>
-            <th>结束时间</th>
-            <th>负责人</th>
-        </thead>
-        <tbody >
-        <!--/*@thymesVar id="Items" type="com.system.reqm.entity.Items"*/-->
-            <tr th:each="Items:${itemss}">
-                <td th:text="${Items.nItemsId}">1</td>
-                <td th:text="${Items.cItemsName}">测试项目</td>
-                <td th:text="${#dates.format(Items.dItemsCreatetime,'yyyy-MM-dd HH:mm:ss')}">2017年12月10日</td>
-                <td th:text="${#dates.format(Items.cItemsEndtime,'yyyy-mm-dd HH:mm:ss')}">2017年12月10日</td>
-                <td th:text="${Items.cTimesPrincipal}">管理员</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <p th:text="|用户名：${user.cLoginname}|">Test</p>
+    <section>
+        <div>
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading tab-bg-info">
+                        <div class="navbar">
+                            <div class="navbar-inner">
+                                <a class="brand" href="#"> <i class="icon-home"></i>主页</a>
+                                <ul class="nav nav-tabs">
+                                    <li data-toggle="tab"  class="active">
+                                        <a href="#one-project">个人项目</a>
+                                    </li>
+                                    <li data-toggle="tab" >
+                                        <a href="#all-project">所有项目</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="panel-body">
+                        <div class="tab-content">
+                            <div id="one-project" class="tab-pane active">
+                                <section class="panel">
+                                    <div class="bio-graph-heading">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <th>项目编号</th>
+                                            <th>项目名称</th>
+                                            <th>开始时间</th>
+                                            <th>结束时间</th>
+                                            <th>负责人</th>
+                                            </thead>
+                                            <tbody >
+                                            <!--/*@thymesVar id="Items" type="com.system.reqm.entity.Items"*/-->
+                                            <tr th:each="Items:${itemss}">
+                                                <td th:text="${Items.nItemsId}">1</td>
+                                                <td th:text="${Items.cItemsName}">测试项目</td>
+                                                <td th:text="${#dates.format(Items.dItemsCreatetime,'yyyy-MM-dd HH:mm:ss')}">2017年12月10日</td>
+                                                <td th:text="${#dates.format(Items.dItemsEndtime,'yyyy-mm-dd HH:mm:ss')}">2017年12月10日</td>
+                                                <td th:text="${Items.cTimesPrincipal}">管理员</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="col-lg-6">
+                                            <section class="panel">
+                                                <header class="panel-heading">
+                                                    成绩曲线
+                                                </header>
+                                                <div class="panel-body text-center">
+                                                    <canvas id="line" height="300" width="450"></canvas>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div id="all-project" class="tab-pane">
+                                <section class="panel">
+                                    <div class="panel-body bio-graph-info">
+                                        <h1>修改信息</h1>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
  </body>
 <script th:href="@{/jquery-3.2.1.js}"></script>
+<script th:href="@{/bootstrap/js/bootstrap.js}"></script>
+<script th:href="@{/bootstrap/js/bootstrap.bundle.js}"></script>
  </html>

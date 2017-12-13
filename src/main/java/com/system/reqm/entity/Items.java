@@ -9,7 +9,7 @@ public class Items {
 
         private Date dItemsCreatetime;
 
-        private Date cItemsEndtime;
+        private Date dItemsEndtime;
 
         private Integer nTiemsAt;
 
@@ -41,12 +41,12 @@ public class Items {
             this.dItemsCreatetime = dItemsCreatetime;
         }
 
-        public Date getcItemsEndtime() {
-            return cItemsEndtime;
+        public Date getdItemsEndtime() {
+            return dItemsEndtime;
         }
 
-        public void setcItemsEndtime(Date cItemsEndtime) {
-            this.cItemsEndtime = cItemsEndtime;
+        public void setdItemsEndtime(Date dItemsEndtime) {
+            this.dItemsEndtime = dItemsEndtime;
         }
 
         public Integer getnTiemsAt() {

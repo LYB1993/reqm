@@ -5,13 +5,13 @@
         <id column="N_ITEMS_ID" jdbcType="INTEGER" property="nItemsId" />
         <result column="C_ITEMS_NAME" jdbcType="VARCHAR" property="cItemsName" />
         <result column="D_ITEMS_CREATETIME" jdbcType="TIMESTAMP" property="dItemsCreatetime" />
-        <result column="C_ITEMS_ENDTIME" jdbcType="TIMESTAMP" property="cItemsEndtime" />
+        <result column="D_ITEMS_ENDTIME" jdbcType="TIMESTAMP" property="dItemsEndtime" />
         <result column="N_TIEMS_AT" jdbcType="INTEGER" property="nTiemsAt" />
         <result column="N_TIMES_ET" jdbcType="INTEGER" property="nTimesEt" />
         <result column="C_TIMES_PRINCIPAL" jdbcType="VARCHAR" property="cTimesPrincipal" />
     </resultMap>
     <sql id="Base_Column_List">
-        N_ITEMS_ID, C_ITEMS_NAME, D_ITEMS_CREATETIME, C_ITEMS_ENDTIME, N_TIEMS_AT, N_TIMES_ET,
+        N_ITEMS_ID, C_ITEMS_NAME, D_ITEMS_CREATETIME, D_ITEMS_ENDTIME, N_TIEMS_AT, N_TIMES_ET,
         C_TIMES_PRINCIPAL
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -31,10 +31,10 @@
     </delete>
     <insert id="insert" parameterType="com.system.reqm.entity.Items">
         insert into t_items (N_ITEMS_ID, C_ITEMS_NAME, D_ITEMS_CREATETIME,
-        C_ITEMS_ENDTIME, N_TIEMS_AT, N_TIMES_ET,
+        D_ITEMS_ENDTIME, N_TIEMS_AT, N_TIMES_ET,
         C_TIMES_PRINCIPAL)
         values (#{nItemsId,jdbcType=INTEGER}, #{cItemsName,jdbcType=VARCHAR}, #{dItemsCreatetime,jdbcType=TIMESTAMP},
-        #{cItemsEndtime,jdbcType=TIMESTAMP}, #{nTiemsAt,jdbcType=INTEGER}, #{nTimesEt,jdbcType=INTEGER},
+        #{dItemsEndtime,jdbcType=TIMESTAMP}, #{nTiemsAt,jdbcType=INTEGER}, #{nTimesEt,jdbcType=INTEGER},
         #{cTimesPrincipal,jdbcType=VARCHAR})
     </insert>
     <insert id="insertSelective" parameterType="com.system.reqm.entity.Items">
@@ -49,8 +49,8 @@
             <if test="dItemsCreatetime != null">
                 D_ITEMS_CREATETIME,
             </if>
-            <if test="cItemsEndtime != null">
-                C_ITEMS_ENDTIME,
+            <if test="dItemsEndtime != null">
+                D_ITEMS_ENDTIME,
             </if>
             <if test="nTiemsAt != null">
                 N_TIEMS_AT,
@@ -72,8 +72,8 @@
             <if test="dItemsCreatetime != null">
                 #{dItemsCreatetime,jdbcType=TIMESTAMP},
             </if>
-            <if test="cItemsEndtime != null">
-                #{cItemsEndtime,jdbcType=TIMESTAMP},
+            <if test="dItemsEndtime != null">
+                #{dItemsEndtime,jdbcType=TIMESTAMP},
             </if>
             <if test="nTiemsAt != null">
                 #{nTiemsAt,jdbcType=INTEGER},
@@ -95,8 +95,8 @@
             <if test="dItemsCreatetime != null">
                 D_ITEMS_CREATETIME = #{dItemsCreatetime,jdbcType=TIMESTAMP},
             </if>
-            <if test="cItemsEndtime != null">
-                C_ITEMS_ENDTIME = #{cItemsEndtime,jdbcType=TIMESTAMP},
+            <if test="dItemsEndtime != null">
+                D_ITEMS_ENDTIME = #{dItemsEndtime,jdbcType=TIMESTAMP},
             </if>
             <if test="nTiemsAt != null">
                 N_TIEMS_AT = #{nTiemsAt,jdbcType=INTEGER},
@@ -114,7 +114,7 @@
         update t_items
         set C_ITEMS_NAME = #{cItemsName,jdbcType=VARCHAR},
         D_ITEMS_CREATETIME = #{dItemsCreatetime,jdbcType=TIMESTAMP},
-        C_ITEMS_ENDTIME = #{cItemsEndtime,jdbcType=TIMESTAMP},
+        D_ITEMS_ENDTIME = #{dItemsEndtime,jdbcType=TIMESTAMP},
         N_TIEMS_AT = #{nTiemsAt,jdbcType=INTEGER},
         N_TIMES_ET = #{nTimesEt,jdbcType=INTEGER},
         C_TIMES_PRINCIPAL = #{cTimesPrincipal,jdbcType=VARCHAR}

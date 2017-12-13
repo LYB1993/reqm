@@ -21,3 +21,5 @@ logging:
   level:
     com.system.reqm.mapper: DEBUG
   path: E:/log/reqm
+server:
+  port: 9090
