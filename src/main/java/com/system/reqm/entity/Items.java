@@ -72,4 +72,17 @@ public class Items {
         public void setcTimesPrincipal(String cTimesPrincipal) {
             this.cTimesPrincipal = cTimesPrincipal == null ? null : cTimesPrincipal.trim();
         }
+
+    @Override
+    public String toString() {
+        return "Items{" +
+                "nItemsId=" + nItemsId +
+                ", cItemsName='" + cItemsName + '\'' +
+                ", dItemsCreatetime=" + dItemsCreatetime +
+                ", dItemsEndtime=" + dItemsEndtime +
+                ", nTiemsAt=" + nTiemsAt +
+                ", nTimesEt=" + nTimesEt +
+                ", cTimesPrincipal='" + cTimesPrincipal + '\'' +
+                '}';
+    }
 }

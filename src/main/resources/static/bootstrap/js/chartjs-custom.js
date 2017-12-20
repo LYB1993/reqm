@@ -1,7 +1,4 @@
 $(document).ready(function() {
-	//var src_fenshu = $("input:hidden[name='src_fenshu']").val();
-	//var arrayObj = new Array();
-	//arrayObj = src_fenshu.split(",");
     var doughnutData = [
         {
             value: 30,
@@ -26,22 +23,22 @@ $(document).ready(function() {
 
     ];
     var lineChartData = {
-        labels : ["1","2","3","4","5","6","7"],
+        labels : ["0","1","2","3","4","5","6","7","8","9","10"],
         datasets : [
            {
                 fillColor : "rgba(220,220,220,0.5)",
                 strokeColor : "rgba(220,220,220,1)",
                 pointColor : "rgba(220,220,220,1)",
                 pointStrokeColor : "#fff",
-                data : [100,67,10,86,36,89,100]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                pointColor : "rgba(151,187,205,1)",
-                pointStrokeColor : "#fff",
-                data :[34,56,67,89,45,12,23]
+                data : [100,90,80,70,60,50,40,30,20,10,0]
             }
+            // {
+            //     fillColor : "rgba(151,187,205,0.5)",
+            //     strokeColor : "rgba(151,187,205,1)",
+            //     pointColor : "rgba(151,187,205,1)",
+            //     pointStrokeColor : "#fff",
+            //     data :[34,56,67,89,45,12,23]
+            // }
         ]
 
     };

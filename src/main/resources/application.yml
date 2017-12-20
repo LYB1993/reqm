@@ -17,9 +17,7 @@ mybatis:
     - mappers/UserMapper.xml
     - mappers/ItemsMapper.xml
 debug: false
-logging:
-  level:
-    com.system.reqm.mapper: DEBUG
-  path: E:/log/reqm
 server:
   port: 9090
+logging:
+  config: classpath:logback.xml
